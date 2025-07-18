@@ -15,10 +15,11 @@ router.get('/users', verifyToken, IsAdmin, async (req, res) => {
 });
 
 // Update user role – Admin only
-router.put('/users/:id/role', verifyToken, IsAdmin, async (req, res) => {
+router.put('/users/:id', verifyToken, IsAdmin, async (req, res) => {
   const { role } = req.body;
+  const {id} = req.params;
   try {
-    const user = await User.findByPk(req.params.id);
+    const user = await User.findByPk(id);
     if (!user) return res.status(404).json({ message: "User not found" });
 
     user.role = role;
