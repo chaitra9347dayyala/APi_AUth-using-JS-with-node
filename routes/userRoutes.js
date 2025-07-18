@@ -6,7 +6,7 @@ router.post('/register', register);
 router.post('/login', login);
 router.get('/profile', verifyToken, (req, res) => {
   res.status(200).json({
-    message: "This is a protected profile route",
+    message: "This is a private route",
     user: req.user
   });
 });

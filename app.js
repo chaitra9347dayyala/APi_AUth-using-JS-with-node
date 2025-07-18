@@ -8,7 +8,7 @@ app.use('/api', userRoutes);
 
 sequelize.sync().then(() => {
   console.log("Database connected");
-  app.listen(5000, () => console.log("Server running on http://localhost:5000"));
+  app.listen(8000, () => console.log("Server running on http://localhost:8000"));
 }).catch(err => {
   console.error("Database connection error:", err);
 });
